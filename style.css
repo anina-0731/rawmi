@@ -202,6 +202,324 @@ body {
     }
 }
 
+/* ========================================
+   老板键界面样式
+   ======================================== */
+
+.boss-key-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f0f0f0;
+    z-index: 9999;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.boss-key-screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.boss-key-header {
+    background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+}
+
+.boss-key-logo {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.boss-key-time {
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+    opacity: 0.9;
+}
+
+.boss-key-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.boss-key-section {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.boss-key-section h3 {
+    color: #1e3c72;
+    margin-bottom: 12px;
+    font-size: 14px;
+    border-bottom: 2px solid #2a5298;
+    padding-bottom: 8px;
+}
+
+.boss-key-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.boss-key-table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.boss-key-table tr:last-child {
+    border-bottom: none;
+}
+
+.boss-key-table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.boss-key-table td:first-child {
+    width: 30%;
+    font-weight: 500;
+    color: #333;
+}
+
+.boss-key-table td:nth-child(2) {
+    width: 50%;
+}
+
+.boss-key-table td:last-child {
+    width: 20%;
+    text-align: right;
+    color: #2a5298;
+    font-weight: bold;
+}
+
+.progress-bar {
+    background: #e8e8e8;
+    border-radius: 3px;
+    overflow: hidden;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.progress {
+    background: linear-gradient(90deg, #2a5298 0%, #3b7fd1 100%);
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.boss-key-list {
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.boss-key-list li {
+    padding: 6px 0;
+    color: #333;
+}
+
+.boss-key-schedule {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+.schedule-item {
+    background: #f9f9f9;
+    border-left: 4px solid #2a5298;
+    padding: 12px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-item .time {
+    font-size: 12px;
+    color: #2a5298;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.schedule-item .title {
+    font-size: 13px;
+    color: #333;
+    margin-top: 4px;
+}
+
+.boss-key-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.metric {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 16px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.metric-label {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.metric-value {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.boss-key-memo {
+    background: #fffbea;
+    border-left: 4px solid #ffc107;
+    padding: 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.boss-key-memo p {
+    margin: 6px 0;
+}
+
+.boss-key-footer {
+    background: #e8e8e8;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    font-family: 'Courier New', monospace;
+    position: sticky;
+    bottom: 0;
+    border-top: 1px solid #ddd;
+}
+
+.boss-key-status {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* ========================================
+   暂停对话框样式
+   ======================================== */
+
+.pause-dialog {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10001;
+    justify-content: center;
+    align-items: center;
+}
+
+.pause-dialog.active {
+    display: flex;
+}
+
+.pause-dialog-content {
+    background: #f5e6d3;
+    border: 6px solid #2c2c2c;
+    padding: 32px;
+    border-radius: 0;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.pause-dialog-content h2 {
+    color: #764ba2;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.pause-dialog-content p {
+    color: #2c2c2c;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.pause-dialog-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.pause-btn {
+    background: #9bbc0f;
+    border: 2px solid #2c2c2c;
+    padding: 10px 20px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.pause-btn:hover {
+    background: #8bab0f;
+    transform: scale(1.05);
+}
+
+.pause-btn:active {
+    background: #7b9b0f;
+    transform: scale(0.98);
+}
+
+#hideBtn {
+    background: #d4a574;
+    color: #2c2c2c;
+}
+
+#hideBtn:hover {
+    background: #c49564;
+}
+
 /* 响应式调整 */
 @media (max-width: 1200px) {
     .game-container {
@@ -224,5 +542,23 @@ body {
         width: 100%;
         max-width: 600px;
         height: auto;
+    }
+
+    .boss-key-section {
+        padding: 12px;
+    }
+
+    .boss-key-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .boss-key-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pause-dialog-content {
+        margin: 20px;
+        padding: 24px;
     }
 }
