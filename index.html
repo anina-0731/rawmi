@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
+    <!-- 游戏主容器 -->
+    <div class="game-container" id="gameContainer">
         <div class="game-wrapper">
             <canvas id="gameCanvas" width="800" height="600"></canvas>
             <div class="inventory-panel">
@@ -22,6 +23,130 @@
             <p>↑↓←→ 或 WASD 移动</p>
             <p><strong>目标：</strong> 收集金币和小鱼干</p>
             <p id="stats">收集物品: 0</p>
+            <p style="margin-top: 12px; padding-top: 8px; border-top: 2px solid #2c2c2c; font-size: 11px; color: #999;">
+                💡 按 Esc 开启老板键！
+            </p>
+        </div>
+    </div>
+
+    <!-- 老板键伪装页面 -->
+    <div class="boss-key-screen" id="bossKeyScreen">
+        <div class="boss-key-header">
+            <div class="boss-key-logo">📊 工作报表系统 v2.3.1</div>
+            <div class="boss-key-time" id="bossKeyTime">2024-06-23 14:30:45</div>
+        </div>
+
+        <div class="boss-key-content">
+            <div class="boss-key-section">
+                <h3>📈 本月业绩指标</h3>
+                <table class="boss-key-table">
+                    <tr>
+                        <td>销售额达成率</td>
+                        <td class="progress-bar"><div class="progress" style="width: 87%"></div></td>
+                        <td>87%</td>
+                    </tr>
+                    <tr>
+                        <td>客户满意度</td>
+                        <td class="progress-bar"><div class="progress" style="width: 94%"></div></td>
+                        <td>94%</td>
+                    </tr>
+                    <tr>
+                        <td>项目完成度</td>
+                        <td class="progress-bar"><div class="progress" style="width: 76%"></div></td>
+                        <td>76%</td>
+                    </tr>
+                    <tr>
+                        <td>团队合作度</td>
+                        <td class="progress-bar"><div class="progress" style="width: 91%"></div></td>
+                        <td>91%</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="boss-key-section">
+                <h3>📋 待办事项（优先级）</h3>
+                <ul class="boss-key-list">
+                    <li>✓ Q2季度财务报表汇总</li>
+                    <li>○ 新产品线可行性分析</li>
+                    <li>○ 客户反馈汇总及改进方案</li>
+                    <li>○ 团队技能培训计划制定</li>
+                    <li>○ 竞争对手分析及应对策略</li>
+                    <li>✓ 市场营销活动策划</li>
+                    <li>○ 预算编制及资源配置</li>
+                    <li>✓ 风险评估及应急预案</li>
+                </ul>
+            </div>
+
+            <div class="boss-key-section">
+                <h3>💼 会议日程</h3>
+                <div class="boss-key-schedule">
+                    <div class="schedule-item">
+                        <span class="time">09:00-09:30</span>
+                        <span class="title">部门晨会 - 本周重点工作</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">10:00-11:30</span>
+                        <span class="title">项目评审 - Q2成果展示</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">14:00-15:00</span>
+                        <span class="title">客户沟通 - 需求确认</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">16:00-17:00</span>
+                        <span class="title">团队建设 - 下半年规划</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boss-key-section">
+                <h3>📊 数据监控面板</h3>
+                <div class="boss-key-metrics">
+                    <div class="metric">
+                        <div class="metric-label">系统可用性</div>
+                        <div class="metric-value">99.9%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">平均响应时间</div>
+                        <div class="metric-value">234ms</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">用户活跃度</div>
+                        <div class="metric-value">12.4k</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">转化率</div>
+                        <div class="metric-value">3.8%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boss-key-section">
+                <h3>📝 重要备忘</h3>
+                <div class="boss-key-memo">
+                    <p>1. 确保所有文档符合公司规范，保持版本控制清晰。</p>
+                    <p>2. 定期检查邮件和沟通工具，及时回复客户咨询。</p>
+                    <p>3. 参加每周例会，汇报项目进展和存在的问题。</p>
+                    <p>4. 更新个人技能树，学习新的行业动态和技术。</p>
+                    <p>5. 支持同事工作，建立良好的团队协作氛围。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="boss-key-footer">
+            <div class="boss-key-status">✓ 系统状态: 正常 | 最后同步: 2024-06-23 14:30:00 | 网络: 连接中</div>
+        </div>
+    </div>
+
+    <!-- 暂停确认对话框 -->
+    <div class="pause-dialog" id="pauseDialog">
+        <div class="pause-dialog-content">
+            <h2>游戏已暂停</h2>
+            <p>危险解除，继续你的摸鱼之旅吗？</p>
+            <div class="pause-dialog-buttons">
+                <button class="pause-btn" id="resumeBtn">继续游戏</button>
+                <button class="pause-btn" id="hideBtn">再装一会儿</button>
+            </div>
         </div>
     </div>
 
